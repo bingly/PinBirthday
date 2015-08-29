@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:gravity="center"
+    android:id="@+id/ll_today">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_weight="1" >
+        
+        <ImageView
+            android:id="@+id/id_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/launch2" />
+    </FrameLayout>
+    
+    <com.bing.pinbirthday.MyHorizontalScrollView
+        android:id="@+id/id_horizontalScrollView"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:background="@android:color/white"
+        android:scrollbars="none" >
+        
+        <LinearLayout
+            android:id="@+id/id_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal" >
+        </LinearLayout>
+    </com.bing.pinbirthday.MyHorizontalScrollView>
+
+</LinearLayout>

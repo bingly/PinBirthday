@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="topbat_bg">#FF0000</color>
+    <color name="bottomtab_normal">#c8bca5</color>
+    <color name="bottomtab_press">#8b572a</color>
+    <color name="line">#c8bca5</color>
+    <color name="line_black">#000</color>
+    <color name="white">#fff</color>
+    <color name="pink">#88ffcccc</color>
+    <color name="light_yello">#F8F4D4</color>
+    <color name="dark_red">#A72E16</color>
+
+</resources>
