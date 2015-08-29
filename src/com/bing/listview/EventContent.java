@@ -89,27 +89,27 @@ public class EventContent extends Activity {
 		event_title.setText(title[id]);
 		event_content.setText(content[id]);
 		
-		gd_view.setOnItemClickListener(new OnItemClickListener() {
-
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long innerid) {
-
-				Display display = getWindowManager().getDefaultDisplay();
-				ImageView imageView = (ImageView) findViewById(R.id.iv_full_screen); 
-				bitmap = BitmapFactory.decodeResource(getResources(), array[id][position]);
-				int width = bitmap.getWidth();
-				int heigth = bitmap.getHeight();
-				int dwidth = display.getWidth();
-				int dheight = display.getHeight();
-				scaleWidth = (float)dwidth / width;
-				scaleHeight = (float)dheight / heigth;
-				
-				Matrix matrix = new Matrix();
-				matrix.setScale(scaleWidth, scaleHeight);
-				Bitmap newbitmap = Bitmap.createBitmap(bitmap, 0, 0,bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-				imageView.setImageBitmap(newbitmap);
-			}
-		});
+//		gd_view.setOnItemClickListener(new OnItemClickListener() {
+//
+//			@Override
+//			public void onItemClick(AdapterView<?> parent, View view, int position, long innerid) {
+//
+//				Display display = getWindowManager().getDefaultDisplay();
+//				ImageView imageView = (ImageView) findViewById(R.id.iv_full_screen); 
+//				bitmap = BitmapFactory.decodeResource(getResources(), array[id][position]);
+//				int width = bitmap.getWidth();
+//				int heigth = bitmap.getHeight();
+//				int dwidth = display.getWidth();
+//				int dheight = display.getHeight();
+//				scaleWidth = (float)dwidth / width;
+//				scaleHeight = (float)dheight / heigth;
+//				
+//				Matrix matrix = new Matrix();
+//				matrix.setScale(scaleWidth, scaleHeight);
+//				Bitmap newbitmap = Bitmap.createBitmap(bitmap, 0, 0,bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+//				imageView.setImageBitmap(newbitmap);
+//			}
+//		});
 //		gd_view.setOnTouchListener(new View.OnTouchListener() {
 //			
 //			@Override

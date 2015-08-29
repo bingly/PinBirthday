@@ -3,7 +3,9 @@ package com.bing.listview;
 import com.bing.pinbirthday.R;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -17,20 +19,22 @@ public class ImageAdapter extends BaseAdapter {
 	 * @author bingcai
 	 *
 	 */
-	public interface OnItemTouchListener
-	{
-		void onTouchEvent(View view, int position);
-	}
+//	public interface OnItemTouchListener
+//	{
+//		void onTouchEvent(View view, int position);
+//	}
 	
-	private OnItemTouchListener mOnTouchListener;
+//	private OnItemTouchListener mOnTouchListener;
 	
 	private int[] mDatas;
 	private LayoutInflater inflator;
+	private Context mContext;
 	
 	public ImageAdapter(Context context, int[] mDatas) {
 
 		this.mDatas = mDatas;
 		this.inflator = LayoutInflater.from(context); 
+		this.mContext = context;
 	}
 	
 	private class ViewHolder{
@@ -56,7 +60,7 @@ public class ImageAdapter extends BaseAdapter {
 	}
 
 	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
+	public View getView(final int position, View convertView, ViewGroup parent) {
 
 		ViewHolder viewHolder = new ViewHolder();
 		
@@ -68,12 +72,26 @@ public class ImageAdapter extends BaseAdapter {
 			viewHolder = (ViewHolder) convertView.getTag();
 		}
 		viewHolder.mImageView.setImageResource(mDatas[position]);
+		
+		viewHolder.mImageView.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+
+				Intent intent = new Intent(mContext, ImageControlActivity.class);
+				intent.putExtra("position", mDatas[position]);
+				mContext.startActivity(intent);
+				
+			}
+		});
+		
 		return convertView;
 	}
 	
-	public void setOnItemTouchListenner(OnItemTouchListener mOnTouchListener)
-	{
-		this.mOnTouchListener = mOnTouchListener;
-	}
+
+//	public void setOnItemTouchListenner(OnItemTouchListener mOnTouchListener)
+//	{
+//		this.mOnTouchListener = mOnTouchListener;
+//	}
 
 }
