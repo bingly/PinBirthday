@@ -1,10 +1,14 @@
 package com.bing.util;
 
+import com.bing.listview.ImageControlActivity;
+
 import android.content.Context;
+import android.graphics.AvoidXfermode.Mode;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.util.AttributeSet;
 import android.util.FloatMath;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.ImageView;
 
@@ -121,8 +125,7 @@ public class ImageControl extends ImageView {
                 changeSize(startX, startY);  
             } else if (isBig) {  
                 mode = DRAG;  
-                is_single_click = true;
-            }  
+            }
         }  
   
         lastClickTime = event.getEventTime();  
@@ -199,10 +202,22 @@ public class ImageControl extends ImageView {
     /** 
      * 鼠标抬起事件 
      */  
-    public long mouseUp(MotionEvent event) {  
-        mode = NONE;  
-        lastUpTime = event.getEventTime();  
-        return lastUpTime;
+    public boolean mouseUp(MotionEvent event) {  
+    	
+    	if ((event.getEventTime() - lastUpTime ) < DOUBLE_CLICK_TIME_SPACE ) {
+    		Log.i("flag", "true");
+        	lastUpTime = event.getEventTime();  
+    		return true;   //双击 图片不会关闭
+    	}else if (mode == DRAG) {
+    		Log.i("flag", "true");
+        	lastUpTime = event.getEventTime();  
+    		return true;   //双击 图片不会关闭
+    	}
+    	mode = NONE;  
+    	lastUpTime = event.getEventTime();  
+    	Log.i("time", lastClickTime+"");
+        
+    	return false;
     }  
   
     /** 
